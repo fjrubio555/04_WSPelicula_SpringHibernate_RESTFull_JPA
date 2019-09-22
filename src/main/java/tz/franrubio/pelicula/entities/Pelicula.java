@@ -14,7 +14,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
+ * Entidad Pelicula.
+ * 
+ * Se recoge la tabla Película de la base de datos, asi como las posibles
+ * consultas que se pueden hacer.
+ * 
  * @author Francisco J. Rubio
  * @version 1.0
  */
@@ -27,7 +31,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Pelicula.findByDirector", query = "SELECT p FROM Pelicula p WHERE LOWER(p.director) like :director"),
     @NamedQuery(name = "Pelicula.findByEstreno", query = "SELECT p FROM Pelicula p WHERE p.estreno = :estreno")})
 public class Pelicula implements Serializable {
-
+    
+    // Mapeado de los campos de la Tabla.
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +54,7 @@ public class Pelicula implements Serializable {
     @Column(name = "estreno")
     private int estreno;
 
+    //Constructores.
     public Pelicula() {
     }
 
@@ -70,6 +76,7 @@ public class Pelicula implements Serializable {
         this.estreno = estreno;
     }
 
+    //Getter y los Setter.
     public Integer getId() {
         return id;
     }
@@ -101,7 +108,8 @@ public class Pelicula implements Serializable {
     public void setEstreno(int estreno) {
         this.estreno = estreno;
     }
-
+    
+    //Sobreescrituras básicas.
     @Override
     public int hashCode() {
         int hash = 0;
